@@ -9,8 +9,9 @@ HText += "</div>";
 HText += "<div id = 'Choosen'></div>";
 HText += "<div class='Shela' id='TheFirst'style='display:block'>";
 HText += 'פרופיל:<select id="profiles"><option id="97" value="97">97</option>  <option id="82" value="82">82</option>   <option id="72" value="72">72</option>  <option id="64" value="64">64</option>  <option id="45" value="45">45</option>  </select>';
-HText += "רגישות לתרופות<input type='text' style='margin-top: 1.55%;width: 150px; ' placeholder ='פירוט רגישות לתרופות' value = '' id='DrugAler' value=''>";
-HText += "</div>"
+HText += "רגישות לתרופות<input type='text' style='margin-top: 1.55%;width: 150px; ' placeholder ='פירוט רגישות לתרופות'  id='DrugAler' value=''>";
+HText += "<div> כמה זמן התלונה?<input type='number' style='margin-top: 1.55%;width: 38px; '  value = '' id='TimeTlon' > <select id='TimeTlona' onchange ='ChangeTimeTlon()'><option value='ימים' id='Days'  >ימים</option><option value='מאתמול' id='yesterday' >מאתמול</option><option value='מהיום' id='Today' >מהיום</option> </select>";
+HText += "</div></div>"
 HText += "<div><button style='background-color:#4c7aaf' class='picktlon' id='Tlonbtn-1' type ='button' onclick='First(0)'>התחל</button></div>";
 
 for (let i = 0; i < data.Shelot.length; i++) {
@@ -201,6 +202,9 @@ function CreateAnaText() {
         if (document.getElementById("Tlonbtn" + w).checked) {
             text += "\n";
             text += "החייל מתלונן על " + DataTlonot[w] + " ";
+
+            text += "מזה " + document.getElementById("TimeTlon").value + " " + document.getElementById("TimeTlona").value + " ";
+
             var Mel = "מלווה ב- ";
             var Shol = "שולל- ";
             for (var i = 0; i < data.Shelot.length; i++) {
@@ -225,4 +229,30 @@ function CreateAnaText() {
 
     return text;
 }
+
+function ChangeTimeTlon()
+    {
+     if(document.getElementById("Days").selected)
+      {
+            document.getElementById("TimeTlon").style.backgroundColor="white";
+            document.getElementById("TimeTlon").onmouseover = function() {
+                this.style.cursor = "auto";
+            }
+        }   
+        else if(document.getElementById("yesterday").selected)
+        {
+         document.getElementById("TimeTlon").style.backgroundColor="red";
+         document.getElementById("TimeTlon").onmouseover = function() {
+            this.style.cursor = "not-allowed";
+        }
+        }
+        else if(document.getElementById("Today").selected)
+        {
+            document.getElementById("TimeTlon").style.backgroundColor="red";
+            document.getElementById("TimeTlon").onmouseover = function() {
+                this.style.cursor = "not-allowed";
+            }
+        }   
+
+    }   
 
