@@ -197,14 +197,18 @@ BackIndex(Index-1)
 }
 function CreateAnaText() {
     var text = "";
+    var F = true;
+
     for (var w = 0; w < DataTlonot.length; w++) {
         //alert("tlon " + DataTlonot[w] + "text: " + text);
         if (document.getElementById("Tlonbtn" + w).checked) {
             text += "\n";
+            if(F){
             text += "החייל מתלונן על " + DataTlonot[w] + " ";
-
+            F = false;
             text += "מזה " + document.getElementById("TimeTlon").value + " " + document.getElementById("TimeTlona").value + " ";
-
+            }else
+            text += "בנוסף החייל מתלונן על " + DataTlonot[w] + " ";
             var Mel = "מלווה ב- ";
             var Shol = "שולל- ";
             for (var i = 0; i < data.Shelot.length; i++) {
@@ -242,6 +246,7 @@ function ChangeTimeTlon()
         else if(document.getElementById("yesterday").selected)
         {
          document.getElementById("TimeTlon").style.backgroundColor="red";
+         document.getElementById("TimeTlon").value = "";
          document.getElementById("TimeTlon").onmouseover = function() {
             this.style.cursor = "not-allowed";
         }
@@ -249,6 +254,7 @@ function ChangeTimeTlon()
         else if(document.getElementById("Today").selected)
         {
             document.getElementById("TimeTlon").style.backgroundColor="red";
+            document.getElementById("TimeTlon").value = "";
             document.getElementById("TimeTlon").onmouseover = function() {
                 this.style.cursor = "not-allowed";
             }
