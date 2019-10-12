@@ -4,7 +4,7 @@ for (let i = 0; i < TheProblems.Tlonot.length; i++) {
     HText += "<div id='ck-button'><label><input class='picktlon' id='Tlonbtn" + i + "' type ='checkbox' value='"+TheProblems.Tlonot[i].Tlon+"' onchange='onchecked("+i+")';'><span>";
     HText += TheProblems.Tlonot[i].Tlon;
     HText += "</span></button></label></div>";
-    HText += "<div id='TlonDiv"+i+"' style='display:none'> כמה זמן התלונה?<input type='number' style='width:36px'  value = '' id='TimeTlon"+i+"' > <select id='TimeTlona' onchange ='ChangeTimeTlon()'><option value='ימים' id='Days'  >ימים</option><option value='מאתמול' id='yesterday' >מאתמול</option><option value='מהיום' id='Today' >מהיום</option> </select></div>";
+    HText += "<div id='TlonDiv"+i+"' style='display:none'> כמה זמן התלונה?<input type='number' style='width:36px'  value = '' id='TimeTlon"+i+"' > <select id='TimeTlona"+i+"' onchange ='ChangeTimeTlon("+i+")'><option value='ימים' id='Days"+i+"'  >ימים</option><option value='מאתמול' id='yesterday"+i+"' >מאתמול</option><option value='מהיום' id='Today"+i+"' >מהיום</option> </select></div>";
 
 }
 HText += "</div>";
@@ -208,10 +208,10 @@ function CreateAnaText() {
             if(F){
             text += "החייל מתלונן על " + DataTlonot[w] + " ";
             F = false;
-            text += "מזה " + document.getElementById("TimeTlon"+i).value + " " + document.getElementById("TimeTlona"+i).value + " ";
+            text += "מזה " + document.getElementById("TimeTlon"+w).value + " " + document.getElementById("TimeTlona"+w).value + " ";
             }else{
             text += "בנוסף החייל מתלונן על " + DataTlonot[w] + " ";
-            text += "מזה " + document.getElementById("TimeTlon"+i).value + " " + document.getElementById("TimeTlona"+i).value + " ";
+            text += "מזה " + document.getElementById("TimeTlon"+w).value + " " + document.getElementById("TimeTlona"+w).value + " ";
             }
             var Mel = "מלווה ב- ";
             var Shol = "שולל- ";
@@ -238,7 +238,7 @@ function CreateAnaText() {
     return text;
 }
 
-function ChangeTimeTlon()
+function ChangeTimeTlon(i)
     {
      if(document.getElementById("Days").selected)
       {
