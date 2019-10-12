@@ -1,17 +1,19 @@
 ﻿var HText = "<div id ='MainTlonot'>";
 //התלונות
 for (let i = 0; i < TheProblems.Tlonot.length; i++) {
-    HText += "<div id='ck-button'><label><input class='picktlon' id='Tlonbtn" + i + "' type ='checkbox' value='"+TheProblems.Tlonot[i].Tlon+"'><span>";
+    HText += "<div id='ck-button'><label><input class='picktlon' id='Tlonbtn" + i + "' type ='checkbox' value='"+TheProblems.Tlonot[i].Tlon+"' onchange='onchecked("+i+")';'><span>";
     HText += TheProblems.Tlonot[i].Tlon;
     HText += "</span></button></label></div>";
+    HText += "<div id='TlonDiv"+i+"' style='display:none'> כמה זמן התלונה?<input type='number' style='width:36px'  value = '' id='TimeTlon"+i+"' > <select id='TimeTlona' onchange ='ChangeTimeTlon()'><option value='ימים' id='Days'  >ימים</option><option value='מאתמול' id='yesterday' >מאתמול</option><option value='מהיום' id='Today' >מהיום</option> </select></div>";
+
 }
 HText += "</div>";
 HText += "<div id = 'Choosen'></div>";
 HText += "<div class='Shela' id='TheFirst'style='display:block'>";
 HText += 'פרופיל:<select id="profiles"><option id="97" value="97">97</option>  <option id="82" value="82">82</option>   <option id="72" value="72">72</option>  <option id="64" value="64">64</option>  <option id="45" value="45">45</option>  </select>';
 HText += "רגישות לתרופות<input type='text' style='margin-top: 1.55%;width: 150px; ' placeholder ='פירוט רגישות לתרופות'  id='DrugAler' value=''>";
-HText += "<div> כמה זמן התלונה?<input type='number' style='margin-top: 1.55%;width: 38px; '  value = '' id='TimeTlon' > <select id='TimeTlona' onchange ='ChangeTimeTlon()'><option value='ימים' id='Days'  >ימים</option><option value='מאתמול' id='yesterday' >מאתמול</option><option value='מהיום' id='Today' >מהיום</option> </select>";
-HText += "</div></div>"
+
+HText += "</div>"
 HText += "<div><button style='background-color:#4c7aaf' class='picktlon' id='Tlonbtn-1' type ='button' onclick='First(0)'>התחל</button></div>";
 
 for (let i = 0; i < data.Shelot.length; i++) {
@@ -206,9 +208,11 @@ function CreateAnaText() {
             if(F){
             text += "החייל מתלונן על " + DataTlonot[w] + " ";
             F = false;
-            text += "מזה " + document.getElementById("TimeTlon").value + " " + document.getElementById("TimeTlona").value + " ";
-            }else
+            text += "מזה " + document.getElementById("TimeTlon"+i).value + " " + document.getElementById("TimeTlona"+i).value + " ";
+            }else{
             text += "בנוסף החייל מתלונן על " + DataTlonot[w] + " ";
+            text += "מזה " + document.getElementById("TimeTlon"+i).value + " " + document.getElementById("TimeTlona"+i).value + " ";
+            }
             var Mel = "מלווה ב- ";
             var Shol = "שולל- ";
             for (var i = 0; i < data.Shelot.length; i++) {
@@ -261,4 +265,14 @@ function ChangeTimeTlon()
         }   
 
     }   
+function onchecked(i){
+    document.getElementById('TlonDiv'+i).style.display='block';
+    for (var w = 0; w < DataTlonot.length; w++) {
+        if(document.getElementById("Tlonbtn" + i ).checked )
+        document.getElementById('TlonDiv'+i).style.display='block';
+        else
+        document.getElementById('TlonDiv'+i).style.display='none';
 
+    } 
+
+}

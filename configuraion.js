@@ -22,7 +22,7 @@
         {shela:"גרד", type: "check", Tlon:["צריבה במתן שתן"], Pre: "0"},
         {shela:"הפרשות", type: "check", Tlon:["צריבה במתן שתן"], Pre: "0"},
         {shela:"דם במתן שתן", type: "check", Tlon:["צריבה במתן שתן"], Pre: "0"},
-        {shela:"דם במתן שתן", type: "check", Tlon:["צריבה במתן שתן"], Pre: "0"},
+        {shela:"היסטוריה של דלקות בדרכי השתן", type: "check", Tlon:["צריבה במתן שתן"], Pre: "0"},
 
         {shela: "בקרה", type: "amount", Tlon: ["היי"]}]
 };
