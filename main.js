@@ -4,13 +4,13 @@ for (let i = 0; i < TheProblems.Tlonot.length; i++) {
     HText += "<div id='ck-button'><label><input class='picktlon' id='Tlonbtn" + i + "' type ='checkbox' value='"+TheProblems.Tlonot[i].Tlon+"' onchange='onchecked("+i+")';'><span>";
     HText += TheProblems.Tlonot[i].Tlon;
     HText += "</span></button></label></div>";
-    HText += "<div id='TlonDiv"+i+"' style='display:none'> כמה זמן התלונה?<input type='number' style='width:36px'  value = '' id='TimeTlon"+i+"' > <select id='TimeTlona"+i+"' onchange ='ChangeTimeTlon("+i+")'><option value='ימים' id='Days"+i+"'  >ימים</option><option value='מאתמול' id='yesterday"+i+"' >מאתמול</option><option value='מהיום' id='Today"+i+"' >מהיום</option> </select></div>";
+    HText += "<div id='TlonDiv"+i+"' style='display:none'> כמה זמן התלונה?<input type='number' style='width:36px'  value = '' id='TimeTlon"+i+"' > <select id='TimeTlona"+i+"' onchange ='ChangeTimeTlon("+i+")'><option value='ימים' id='Days"+i+"'>ימים</option><option value='מאתמול' id='yesterday"+i+"'>מאתמול</option><option value='מהיום' id='Today"+i+"' >מהיום</option> </select></div>";
 
 }
 HText += "</div>";
 HText += "<div id = 'Choosen'></div>";
 HText += "<div class='Shela' id='TheFirst'style='display:block'>";
-HText += 'פרופיל:<select id="profiles"><option id="97" value="97">97</option>  <option id="82" value="82">82</option>   <option id="72" value="72">72</option>  <option id="64" value="64">64</option>  <option id="45" value="45">45</option>  </select>';
+HText += 'פרופיל:<select id="profiles"><option id="97" value="97" >97</option>  <option id="82" value="82">82</option>   <option id="72" value="72">72</option>  <option id="64" value="64">64</option>  <option id="45" value="45">45</option>  </select>';
 HText += "רגישות לתרופות<input type='text' style='margin-top: 1.55%;width: 150px; ' placeholder ='פירוט רגישות לתרופות'  id='DrugAler' value=''>";
 
 HText += "</div>"
@@ -61,6 +61,10 @@ for (var i = 0; i < ana.length; i++) {
 var DataTlonot = new Array(TheProblems.Tlonot.length);
 for (var i = 0; i < DataTlonot.length; i++) {
     DataTlonot[i] = TheProblems.Tlonot[i].Tlon
+}
+
+function DisableNumTime(optionSelected){
+    alert(optionSelected);
 }
 
 function AddToArray(Index, kind) {
@@ -238,33 +242,37 @@ function CreateAnaText() {
     return text;
 }
 
+
 function ChangeTimeTlon(i)
     {
-     if(document.getElementById("Days").selected)
+     if(document.getElementById("Days"+i).selected)
       {
-            document.getElementById("TimeTlon").style.backgroundColor="white";
-            document.getElementById("TimeTlon").onmouseover = function() {
+            document.getElementById("TimeTlon"+i).style.backgroundColor="white";
+            document.getElementById("TimeTlon"+i).disabled = false;
+            document.getElementById("TimeTlon"+i).onmouseover = function() {
                 this.style.cursor = "auto";
             }
         }   
-        else if(document.getElementById("yesterday").selected)
+        else if(document.getElementById("yesterday"+i).selected)
         {
-         document.getElementById("TimeTlon").style.backgroundColor="red";
-         document.getElementById("TimeTlon").value = "";
-         document.getElementById("TimeTlon").onmouseover = function() {
+         document.getElementById("TimeTlon"+i).style.backgroundColor="red";
+         document.getElementById("TimeTlon"+i).disabled = true;
+         document.getElementById("TimeTlon"+i).value = "";
+         document.getElementById("TimeTlon"+i).onmouseover = function() {
             this.style.cursor = "not-allowed";
         }
         }
-        else if(document.getElementById("Today").selected)
+        else if(document.getElementById("Today"+i).selected)
         {
-            document.getElementById("TimeTlon").style.backgroundColor="red";
-            document.getElementById("TimeTlon").value = "";
-            document.getElementById("TimeTlon").onmouseover = function() {
+            document.getElementById("TimeTlon"+i).style.backgroundColor="red";
+            document.getElementById("TimeTlon"+i).disabled = true;
+            document.getElementById("TimeTlon"+i).value = "";
+            document.getElementById("TimeTlon"+i).onmouseover = function() {
                 this.style.cursor = "not-allowed";
             }
         }   
 
-    }   
+    }    
 function onchecked(i){
     document.getElementById('TlonDiv'+i).style.display='block';
     for (var w = 0; w < DataTlonot.length; w++) {
