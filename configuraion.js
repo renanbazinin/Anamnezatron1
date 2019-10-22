@@ -3,7 +3,7 @@
         {shela: "סחרחורת", type: "check", Tlon: ["כאבי ראש", "כאבי בטן", "כאבי גרון"], Pre: "0"},
         {shela: "בחילות", type: "check", Tlon: ["כאבי ראש", "כאבי בטן"], Pre: "0"},
         {shela: "הקאות", type: "amount", Tlon: ["כאבי ראש", "כאבי בטן"], Pre: "0"},
-        {shela: "הקאה דמית ", type: "amount", Tlon: ["כאבי ראש", "כאבי בטן"], Pre: "הקאות"},
+        {shela: "הקאה דמית ", type: "check", Tlon: ["כאבי ראש", "כאבי בטן"], Pre: "הקאות"},
         {shela: "טשטוש בראייה", type: "check", Tlon: ["כאבי ראש"], Pre: "0"},
         {shela: "נזלת", type: "check", Tlon: ["כאבי ראש", "כאבי גרון"], Pre: "0"},
         {shela: "התגברות הכאב בהטיית הראש קדימה", type: "check", Tlon: ["כאבי ראש"], Pre: "0"},
@@ -24,7 +24,7 @@
         {shela:"דם במתן שתן", type: "check", Tlon:["צריבה במתן שתן"], Pre: "0"},
         {shela:"היסטוריה של דלקות בדרכי השתן", type: "check", Tlon:["צריבה במתן שתן"], Pre: "0"},
 
-        {shela: "בקרה", type: "amount", Tlon: ["היי"]}]
+        {shela: "האם אתה בטוח שסיימת?", type: "amount", Tlon: ["היי"]}]
 };
 
 
