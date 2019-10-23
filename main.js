@@ -4,13 +4,13 @@ for (let i = 0; i < TheProblems.Tlonot.length; i++) {
     HText += "<div id='ck-button'><label><input class='picktlon' id='Tlonbtn" + i + "' type ='checkbox' value='"+TheProblems.Tlonot[i].Tlon+"' onchange='onchecked("+i+")';'><span>";
     HText += TheProblems.Tlonot[i].Tlon;
     HText += "</span></button></label></div>";
-    HText += "<div id='TlonDiv"+i+"' style='display:none'> כמה זמן התלונה?<input type='number' style='width:36px'  value = '' id='TimeTlon"+i+"' > <select id='TimeTlona"+i+"' onchange ='ChangeTimeTlon("+i+")'><option value='ימים' id='Days"+i+"'>ימים</option><option value='מאתמול' id='yesterday"+i+"'>מאתמול</option><option value='מהיום' id='Today"+i+"' >מהיום</option> </select></div>";
+    HText += "<div id='TlonDiv"+i+"' style='display:none'> כמה זמן התלונה?<input type='number' min='1' max='99' style='width:36px'  value = '' id='TimeTlon"+i+"' > <select id='TimeTlona"+i+"' onchange ='ChangeTimeTlon("+i+")'><option value='ימים' id='Days"+i+"'>ימים</option><option value='מאתמול' id='yesterday"+i+"'>מאתמול</option><option value='מהיום' id='Today"+i+"' >מהיום</option> </select></div>";
 
 }
 HText += "</div>";
 HText += "<div id = 'Choosen'></div>";
 HText += "<div class='Shela' id='TheFirst'style='display:block'>";
-HText += '<select id="gender"><option id="97" value="97" >בן</option> <option id="97" value="97" >בת</option></select>&nbsp;&nbsp;';
+//HText += '<select id="gender"><option id="97" value="97" >בן</option> <option id="97" value="97" >בת</option></select>&nbsp;&nbsp;';
 HText += 'פרופיל:<select id="profiles"><option id="97" value="97" >97</option>  <option id="82" value="82">82</option>   <option id="72" value="72">72</option>  <option id="64" value="64">64</option>  <option id="45" value="45">45</option>  </select>';
 HText += "רגישות לתרופות<input type='text' style='margin-top: 1.55%;width: 150px; ' placeholder ='פירוט רגישות לתרופות'  id='DrugAler' value=''>";
 
