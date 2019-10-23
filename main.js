@@ -10,7 +10,7 @@ for (let i = 0; i < TheProblems.Tlonot.length; i++) {
 HText += "</div>";
 HText += "<div id = 'Choosen'></div>";
 HText += "<div class='Shela' id='TheFirst'style='display:block'>";
-//HText += '<select id="gender"><option id="97" value="97" >בן</option> <option id="97" value="97" >בת</option></select>&nbsp;&nbsp;';
+HText += '<select id="gender"><option id="male" value="male" >בן</option> <option id="female" value="female" >בת</option></select>&nbsp;&nbsp;';
 HText += 'פרופיל:<select id="profiles"><option id="97" value="97" >97</option>  <option id="82" value="82">82</option>   <option id="72" value="72">72</option>  <option id="64" value="64">64</option>  <option id="45" value="45">45</option>  </select>';
 HText += "רגישות לתרופות<input type='text' style='margin-top: 1.55%;width: 150px; ' placeholder ='פירוט רגישות לתרופות'  id='DrugAler' value=''>";
 
@@ -223,12 +223,22 @@ function CreateAnaText() {
         if (document.getElementById("Tlonbtn" + w).checked) {
             text += "\n";
             if(F){
-            text += "החייל מתלונן על " + DataTlonot[w] + " ";
+//HText += '<select id="gender"><option id="male" value="male" >בן</option> <option id="female" value="female" >בת</option></select>&nbsp;&nbsp;';
+
+            if(document.getElementById("male").selected)
+                text += "החייל מתלונן על " + DataTlonot[w] + " ";
+            else
+                text += "החיילת מתלוננת על " + DataTlonot[w] + " ";
+
             F = false;
             text += "מזה " + document.getElementById("TimeTlon"+w).value + " " + document.getElementById("TimeTlona"+w).value + " ";
             }else{
-            text += "בנוסף החייל מתלונן על " + DataTlonot[w] + " ";
+            if(document.getElementById("male").selected)
+                text += "בנוסף החייל מתלונן על " + DataTlonot[w] + " ";
+            else
+                text += "בנוסף החיילת מתלוננת על " + DataTlonot[w] + " ";
             text += "מזה " + document.getElementById("TimeTlon"+w).value + " " + document.getElementById("TimeTlona"+w).value + " ";
+
             }
             var Mel = "מלווה ב- ";
             var Shol = "שולל- ";
