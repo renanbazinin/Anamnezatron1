@@ -159,16 +159,15 @@ div label input {
   /* This is to remove the arrow of select element in IE */
   select::-ms-expand {	display: none; }
   #gender{
-    width: 20px;
+    width: 30px;
       -webkit-appearance: none;
       appearance: none;
       background:none;
-      
+      padding-right: 3px;
 
       color: white;
       font-size: 16px;
   }
   #gender { 
-    /* Whatever color  you want */
     background-color: rgb(31, 29, 29);
 }
